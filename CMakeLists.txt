@@ -4,7 +4,12 @@ project(23409m VERSION 1.0)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+set(SOURCES
+    src/main.cpp
+    src/bitboard.cpp
+    src/move.cpp
+)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -15,10 +20,12 @@ FetchContent_MakeAvailable(googletest)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-add_executable(main src/main.cpp src/bitboard.cpp)
+add_executable(main ${SOURCES})
 
 enable_testing()
 
 target_link_libraries(main GTest::gtest_main)
 
 add_subdirectory(tests)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

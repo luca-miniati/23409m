@@ -2,7 +2,7 @@
 #include "bitboard.h"
 
 TEST(BitboardTest, BasicFunctionality) {
-    Bitboard b(0ull);
+    Bitboard b;
     EXPECT_EQ(b.get(0), false);
     b.set(1);
     EXPECT_EQ(b.get(0), false);

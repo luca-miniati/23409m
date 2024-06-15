@@ -19,36 +19,36 @@ enum SQUARES {
 const u64 EMPTY = 0ull;
 const u64 UNIVERSE = 0xffffffffffffffffULL;
 
-const u64 FILE_A = 0xffull;
-const u64 FILE_B = 0xff00ull;
-const u64 FILE_C = 0xff0000ull;
-const u64 FILE_D = 0xff000000ull;
-const u64 FILE_E = 0xff00000000ull;
-const u64 FILE_F = 0xff0000000000ull;
-const u64 FILE_G = 0xff000000000000ull;
-const u64 FILE_H = 0xff00000000000000ull;
+const u64 RANK_1 = 0xffull;
+const u64 RANK_2 = 0xff00ull;
+const u64 RANK_3 = 0xff0000ull;
+const u64 RANK_4 = 0xff000000ull;
+const u64 RANK_5 = 0xff00000000ull;
+const u64 RANK_6 = 0xff0000000000ull;
+const u64 RANK_7 = 0xff000000000000ull;
+const u64 RANK_8 = 0xff00000000000000ull;
 
-const u64 NOT_FILE_A = 0xffffffffffffff00ull;
-const u64 NOT_FILE_B = 0xffffffffffff00ffull;
-const u64 NOT_FILE_A_B = 0xffffffffffff0000ull;
-const u64 NOT_FILE_G = 0xff00ffffffffffffull;
-const u64 NOT_FILE_H = 0xffffffffffffffull;
-const u64 NOT_FILE_G_H = 0xffffffffffffull;
+const u64 NOT_RANK_1 = 0xffffffffffffff00ull;
+const u64 NOT_RANK_2 = 0xffffffffffff00ffull;
+const u64 NOT_RANK_1_2 = 0xffffffffffff0000ull;
+const u64 NOT_RANK_7 = 0xff00ffffffffffffull;
+const u64 NOT_RANK_8 = 0xffffffffffffffull;
+const u64 NOT_RANK_7_8 = 0xffffffffffffull;
 
-const u64 RANK_1 = 0x101010101010101ull;
-const u64 RANK_2 = 0x202020202020202ull;
-const u64 RANK_3 = 0x404040404040404ull;
-const u64 RANK_4 = 0x808080808080808ull;
-const u64 RANK_5 = 0x1010101010101010ull;
-const u64 RANK_6 = 0x2020202020202020ull;
-const u64 RANK_7 = 0x4040404040404040ull;
-const u64 RANK_8 = 0x8080808080808080ull;
+const u64 FILE_A = 0x101010101010101ull;
+const u64 FILE_B = 0x202020202020202ull;
+const u64 FILE_C = 0x404040404040404ull;
+const u64 FILE_D = 0x808080808080808ull;
+const u64 FILE_E = 0x1010101010101010ull;
+const u64 FILE_F = 0x2020202020202020ull;
+const u64 FILE_G = 0x4040404040404040ull;
+const u64 FILE_H = 0x8080808080808080ull;
 
-const u64 NOT_RANK_1 = 0xfefefefefefefefeull;
-const u64 NOT_RANK_2 = 0xfdfdfdfdfdfdfdfdull;
-const u64 NOT_RANK_1_2 = 0xfcfcfcfcfcfcfcfcull;
-const u64 NOT_RANK_7 = 0xbfbfbfbfbfbfbfbfull;
-const u64 NOT_RANK_8 = 0x7f7f7f7f7f7f7f7full;
-const u64 NOT_RANK_7_8 = 0x3f3f3f3f3f3f3f3full;
+const u64 NOT_FILE_A = 0xfefefefefefefefeull;
+const u64 NOT_FILE_B = 0xfdfdfdfdfdfdfdfdull;
+const u64 NOT_FILE_A_B = 0xfcfcfcfcfcfcfcfcull;
+const u64 NOT_FILE_G = 0xbfbfbfbfbfbfbfbfull;
+const u64 NOT_FILE_H = 0x7f7f7f7f7f7f7f7full;
+const u64 NOT_FILE_G_H = 0x3f3f3f3f3f3f3f3full;
 
 #endif
