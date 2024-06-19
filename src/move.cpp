@@ -1,23 +1,17 @@
 #include "move.h"
 #include "utils.h"
 
-u64 MoveGenerator::singlePawnPushes(Bitboard pawns, u64 emptySquares, int color) {
-    if (color)
-        // black
-        return ((pawns.rshift(8)) & emptySquares) << 8;
-    else
-        // white
-        return ((pawns.lshift(8)) & emptySquares) >> 8;
+u64 MoveGenerator::pawnPushes(Bitboard pawns, u64 emptySquares, int color) {
+    u64 res = 0;
+    if (color) { // black
+        res |= ((pawns.value >> 8) & emptySquares) << 8; // single pushes
+        res |= res & (((pawns.value >> 16) & emptySquares) << 8); // double pushes
+    } else { // white
+        res |= ((pawns.value << 8) & emptySquares) >> 8; // single pushes
+        res |= res & (((pawns.value << 16) & emptySquares) >> 8); // double pushes
+    }
+    return res;
 }
-
-// u64 MoveGenerator::doublePawnPushes(Bitboard pawns, u64 emptySquares, int color) {
-//     if (color)
-//         // black
-//         return ((pawns.rshift(8)) & emptySquares) << 8;
-//     else
-//         // white
-//         return ((pawns.lshift(8)) & emptySquares) >> 8;
-// }
 
 u64 MoveGenerator::knightAttacks(int square) {
     return this->knightMasks[square];

@@ -16,10 +16,6 @@ bool Bitboard::get(int index) {
     return this->value & (1ull << index);
 }
 
-bool Bitboard::get(Bitboard other) {
-    return this->value & (1ull << index);
-}
-
 void Bitboard::set(int index) {
     this->value |= (1ull << index);
 }
@@ -27,14 +23,6 @@ void Bitboard::set(int index) {
 void Bitboard::erase(int index) {
     if (this->get(index))
         this->value ^= (1ull << index);
-}
-
-u64 Bitboard::lshift(int index) {
-    return this->value << index;
-}
-
-u64 Bitboard::rshift(int index) {
-    return this->value >> index;
 }
 
 void Bitboard::print() {

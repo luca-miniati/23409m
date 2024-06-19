@@ -16,6 +16,10 @@ enum SQUARES {
     a8, b8, c8, d8, e8, f8, g8, h8,
 };
 
+enum COLORS {
+    white, black
+};
+
 const u64 EMPTY = 0ull;
 const u64 UNIVERSE = 0xffffffffffffffffULL;
 
