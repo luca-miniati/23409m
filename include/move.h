@@ -1,8 +1,6 @@
 #ifndef MOVE_H
 #define MOVE_H
 
-#include <cstdint>
-#include "bitboard.h"
 #include "utils.h"
 
 class MoveGenerator {
@@ -37,12 +35,30 @@ private:
     };
 
 public:
-    u64 pawnPushes(Bitboard pawns, u64 emptySquares, int color);
-    u64 knightAttacks(int square);
+    inline std::pair<u64, u64> pawnPushes(u64 pawns, u64 emptySquares, int color) {
+        u64 singlePushes = 0ull;
+        u64 doublePushes = 0ull;
+        if (color) { // black
+            singlePushes |= ((pawns >> 8) & emptySquares) << 8; // single pushes
+            doublePushes |= singlePushes & (((pawns >> 16) & emptySquares) << 8); // double pushes
+        } else { // white
+            singlePushes |= ((pawns << 8) & emptySquares) >> 8; // single pushes
+            doublePushes |= singlePushes & (((pawns << 16) & emptySquares) >> 8); // double pushes
+        }
+        return {singlePushes, doublePushes};
+    }
+
+    inline u64 knightAttacks(int square) {
+        return this->knightMasks[square];
+    }
+
+    inline u64 kingAttacks(int square) {
+        return this->kingMasks[square];
+    }
+
 //     bishopAttacks(int square);
 //     rookAttacks(int square);
 //     queenAttacks(int square);
-    u64 kingAttacks(int square);
 };
 
 class MoveGeneratorManual {

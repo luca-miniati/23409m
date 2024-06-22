@@ -2,13 +2,13 @@
 #include "bitboard.h"
 
 TEST(BitboardTest, BasicFunctionality) {
-    Bitboard b;
-    EXPECT_EQ(b.get(0), false);
-    b.set(1);
-    EXPECT_EQ(b.get(0), false);
-    EXPECT_EQ(b.get(1), true);
-    b.erase(1);
-    EXPECT_EQ(b.get(1), false);
+    u64 bitboard = 0ull;
+    EXPECT_EQ(getBit(bitboard, 0), false);
+    setBit(bitboard, 1);
+    EXPECT_EQ(getBit(bitboard, 0), false);
+    EXPECT_EQ(getBit(bitboard, 1), true);
+    eraseBit(bitboard, 1);
+    EXPECT_EQ(getBit(bitboard, 1), false);
 }
 
 int main(int argc, char **argv) {

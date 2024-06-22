@@ -3,14 +3,47 @@
 #include "move.h"
 #include "utils.h"
 
-TEST(BitboardTest, BasicFunctionality) {
-    Bitboard bitboard = RANK_2;
+TEST(MoveTest, MoveGeneration) {
+    u64 bitboard;
+    u64 occupancy;
     MoveGenerator moveGenerator;
-    // starting position of pawns, no blockers, white can push all pawns
-    EXPECT_EQ(moveGenerator.pawnPushes(bitboard, UNIVERSE, white), RANK_2);
-    // starting position of pawns, no blockers, white can push all pawns
-    bitboard.value = RANK_7;
-    EXPECT_EQ(moveGenerator.pawnPushes(bitboard, UNIVERSE, black), RANK_7);
+
+    // starting position of pawns for white
+    bitboard = RANK_2;
+    // no blockers
+    std::pair<u64, u64> p = moveGenerator.pawnPushes(bitboard, UNIVERSE, white);
+    // all pawns can push once
+    EXPECT_EQ(p.first, RANK_2);
+    // all pawns can push twice
+    EXPECT_EQ(p.second, RANK_2);
+
+    // starting position of pawns for white
+    bitboard = RANK_2;
+    // no blockers
+    
+    p = moveGenerator.pawnPushes(bitboard, UNIVERSE, white);
+    // all pawns can push once
+    EXPECT_EQ(p.first, RANK_2);
+    // all pawns can push twice
+    EXPECT_EQ(p.second, RANK_2);
+
+    // starting position of pawns for black
+    bitboard = RANK_7;
+    // no blockers
+    p = moveGenerator.pawnPushes(bitboard, UNIVERSE, black);
+    // all pawns can push once
+    EXPECT_EQ(p.first, RANK_7);
+    // all pawns can push twice
+    EXPECT_EQ(p.second, RANK_7);
+
+    // starting position of pawns for black
+    bitboard = RANK_7;
+    // no blockers
+    p = moveGenerator.pawnPushes(bitboard, UNIVERSE, black);
+    // all pawns can push once
+    EXPECT_EQ(p.first, RANK_7);
+    // all pawns can push twice
+    EXPECT_EQ(p.second, RANK_7);
 }
 
 int main(int argc, char **argv) {
